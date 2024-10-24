@@ -1,26 +1,18 @@
-import { useState, useEffect } from "react";
 import Logo from "../assets/imgs/NewYorkTimesLogo.svg";
 import { HeaderStyled } from "./Styles/HeaderStyled";
 import { Navbar } from "./Navbar";
 import { IoIosSearch } from "react-icons/io";
 import { formattedDate } from "../utils/Date";
 import { MobileHeader } from "./MobileHeader";
+import { useIsMobile } from "../utils/MobileResponsive";
+import { useSelector, useDispatch } from "react-redux";
+import { changeSection } from "../redux/sectionSlice";
 
 export const Header = () => {
-  const sections = ["world", "us", "nyregion"];
-  const [activeSection, setActiveSection] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1200);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const status = useSelector((state) => state.section);
+  const dispatch = useDispatch();
+  const isMobile = useIsMobile(1200);
+  const sections = ["home", "world", "us", "nyregion"];
 
   return (
     <>
@@ -37,9 +29,11 @@ export const Header = () => {
                 {sections.map((section, index) => (
                   <li
                     key={index}
-                    onClick={() => setActiveSection(section)}
+                    onClick={() => {
+                      dispatch(changeSection(section));
+                    }}
                     style={{
-                      fontWeight: activeSection === section ? "bold" : "normal",
+                      fontWeight: status === section ? "bold" : "normal",
                     }}
                   >
                     {section}

@@ -3,29 +3,25 @@ import { Article } from "../components/Article";
 import { fetchNews } from "../utils/FetchNews";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
+import { useIsMobile } from "../utils/MobileResponsive";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1200);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+  const isMobile = useIsMobile(1200);
   const [visibleCount, setVisibleCount] = useState(10);
 
+  let section = useSelector((state) => state.section);
+
   // api call
-  const section = "home";
-  const { isLoading, data, error } = useQuery({
+  const { isLoading, data, error, refetch } = useQuery({
     queryKey: ["news"],
     queryFn: () => fetchNews({ section }),
   });
+  const filteredData = data?.filter((item) => item.abstract);
+
+  useEffect(() => {
+    refetch();
+  }, [section, refetch]);
 
   if (isLoading) return "Loading...";
 
@@ -36,8 +32,8 @@ const Home = () => {
   return (
     <HomeStyled>
       <div className="principal">
-        {data.slice(0, visibleCount).map((article) => (
-          <Article key={article.title} article={article} />
+        {filteredData.slice(0, visibleCount).map((article) => (
+          <Article key={article.uri} article={article} />
         ))}
         <div className="loadMore">
           <button onClick={() => setVisibleCount(visibleCount + 10)}>

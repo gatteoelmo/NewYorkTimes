@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from "react";
 import { SubSections } from "./SubSections";
 
 export const Navbar = () => {
-  const [activeSection, setActiveSection] = useState(null);
   // subsections for navbar
   const subSections1 = [
     "arts",
@@ -29,7 +28,6 @@ Navbar) is intersecting with another element in the viewport. Here's a breakdown
 does: */
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef();
-
   useEffect(() => {
     const element = ref.current;
 
@@ -47,38 +45,22 @@ does: */
     <NavbarStyled ref={ref}>
       <nav>
         <ul>
-          <SubSections
-            subSections={subSections1}
-            status={activeSection}
-            set={setActiveSection}
-          />
+          <SubSections subSections={subSections1} />
         </ul>
         <hr />
         <ul>
-          <SubSections
-            subSections={subSections2}
-            status={activeSection}
-            set={setActiveSection}
-          />
+          <SubSections subSections={subSections2} />
         </ul>
       </nav>
 
       {/* navbar will be fixed when you scroll under the header */}
       <nav className={!isIntersecting ? "navbarFixed" : "navbarNone"}>
         <ul>
-          <SubSections
-            subSections={subSections1}
-            status={activeSection}
-            set={setActiveSection}
-          />
+          <SubSections subSections={subSections1} />
         </ul>
         <hr />
         <ul>
-          <SubSections
-            subSections={subSections2}
-            status={activeSection}
-            set={setActiveSection}
-          />
+          <SubSections subSections={subSections2} />
         </ul>
       </nav>
     </NavbarStyled>

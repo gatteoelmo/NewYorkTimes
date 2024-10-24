@@ -7,13 +7,22 @@
  * `onClick` event is set to call the `set` function with the current `subSection` when a list item is
  * clicked.
  */
-export const SubSections = ({ subSections, status, set }) => {
+
+import { useDispatch, useSelector } from "react-redux";
+import { changeSection } from "../redux/sectionSlice";
+
+export const SubSections = ({ subSections }) => {
+  const status = useSelector((state) => state.section);
+  const dispatch = useDispatch();
+
   return (
     <ul>
       {subSections.map((subSection, index) => (
         <li
           key={index}
-          onClick={() => set(subSection)}
+          onClick={() => {
+            dispatch(changeSection(subSection));
+          }}
           style={{
             fontWeight: status === subSection ? "bold" : "normal",
           }}
