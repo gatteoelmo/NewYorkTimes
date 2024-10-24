@@ -7,25 +7,43 @@ export const HomeStyled = styled.div`
   margin: 0 auto;
   padding: 0px 3.7vw;
   max-width: 1300px;
-  overflow: hidden;
+  // overflow: hidden;
   margin-top: 20px;
 
   .principal {
     // background-color: red;
     flex: 2; 
-    height: 1000px;
+    height: auto;
     // width: 400px;
-    padding-right: 20px;
+    padding-right: 0px;
     border-right: 1px solid #EAE9EC;
+
+    .loadMore {
+      display: flex;
+      justify-content: center;
+    
+    button {
+      margin: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+      
+    }
+
+    
 
   }
 
   .secondary {
     // background-color: blue;
     flex: 1; 
-    height: 600px;
+    height: auto;
     // width: 300px;
-    padding-left: 20px;
+    padding-left: 0px;
 
   }
 `

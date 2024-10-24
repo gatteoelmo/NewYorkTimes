@@ -13,14 +13,18 @@ export const HeaderStyled = styled.header`
         justify-content: space-between;
     }
 
-    ul {
+    .topBar {
         display: flex;
         list-style: none;
         gap: 20px;
         align-items: center;
+        justify-content: center;
+
+        
         
         li {
             cursor: pointer;
+            text-transform: uppercase;
         }
     }
 
@@ -111,7 +115,5 @@ export const HeaderStyled = styled.header`
 
     
     }
-    @media screen and (max-width: 1201px) {
-        display: none;
-    }
+    
 `;

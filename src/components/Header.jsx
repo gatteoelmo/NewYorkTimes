@@ -7,9 +7,8 @@ import { formattedDate } from "../utils/Date";
 import { MobileHeader } from "./MobileHeader";
 
 export const Header = () => {
-  const sections = ["U.S.", "INTERNATIONAL", "CANADA", "SPAIN", "中文"];
-  const [activeSection, setActiveSection] = useState(sections[0]);
-
+  const sections = ["world", "us", "nyregion"];
+  const [activeSection, setActiveSection] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1200);
 
   useEffect(() => {
@@ -25,50 +24,52 @@ export const Header = () => {
 
   return (
     <>
-      <HeaderStyled>
-        <div className="headerTop">
-          <div>
-            <button className="search">
-              <IoIosSearch />
-            </button>
+      {!isMobile && (
+        <HeaderStyled>
+          <div className="headerTop">
+            <div>
+              <button className="search">
+                <IoIosSearch />
+              </button>
+            </div>
+            <div className="topBar">
+              <ul className="topBar">
+                {sections.map((section, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setActiveSection(section)}
+                    style={{
+                      fontWeight: activeSection === section ? "bold" : "normal",
+                    }}
+                  >
+                    {section}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <button className="subscribe">SUBSCRIBE FOR $0.50/WEEK</button>
+              <button className="subscribe">Log in</button>
+            </div>
           </div>
-          <div>
-            <ul>
-              {sections.map((section, index) => (
-                <li
-                  key={index}
-                  onClick={() => setActiveSection(section)}
-                  style={{
-                    fontWeight: activeSection === section ? "bold" : "normal",
-                  }}
-                >
-                  {section}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <button className="subscribe">SUBSCRIBE FOR $0.50/WEEK</button>
-            <button className="subscribe">Log in</button>
-          </div>
-        </div>
 
-        <div className="headerCenter">
-          <div>
-            <p>{formattedDate}</p>
-            <p>Today&apos;s paper</p>
+          <div className="headerCenter">
+            <div>
+              <p>{formattedDate}</p>
+              <p>Today&apos;s paper</p>
+            </div>
+            <div className="logo">
+              <img src={Logo} alt="" />
+            </div>
+            <div></div>
           </div>
-          <div className="logo">
-            <img src={Logo} alt="" />
-          </div>
-          <div></div>
-        </div>
 
-        <Navbar />
-        <hr className="line" />
-        <hr className="line" />
-      </HeaderStyled>
-      {isMobile && <MobileHeader />};
+          <Navbar />
+          <hr className="line" />
+          <hr className="line" />
+        </HeaderStyled>
+      )}
+      {isMobile && <MobileHeader />}
     </>
   );
 };

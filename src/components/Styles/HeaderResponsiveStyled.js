@@ -5,6 +5,7 @@ export const HeaderResponsiveStyled = styled.header`
     font-size: 12px;
     margin: initial;
     box-sizing: border-box;
+    z-index: 3;
 
     div {
         display: flex;
@@ -83,5 +84,4 @@ export const HeaderResponsiveStyled = styled.header`
             color: #6480A6;
         }
     }
-}
 `

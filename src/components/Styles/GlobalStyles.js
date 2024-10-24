@@ -10,7 +10,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        height: 200vh;
         width: 100vw;
         margin: 0 auto;
         box-sizing: border-box;
