@@ -1,6 +1,6 @@
 import { NavbarStyled } from "./Styles/NavbarStyled";
 import { useRef, useEffect, useState } from "react";
-import { SubSections } from "./SubSections";
+import { SubSections } from "./SubSectionsNavbar";
 
 export const Navbar = () => {
   // subsections for navbar
@@ -15,7 +15,6 @@ export const Navbar = () => {
   ];
   const subSections2 = [
     "movies",
-    "opinion",
     "politics",
     "science",
     "sports",

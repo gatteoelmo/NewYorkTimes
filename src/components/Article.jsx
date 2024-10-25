@@ -4,7 +4,7 @@ export const Article = ({ article }) => {
   return (
     <ArticleStyled>
       {article && (
-        <a href="article.url">
+        <a href={article.url} target="_blank">
           <div className="content">
             <h4>{article.subsection}</h4>
             <h3>{article.title}</h3>

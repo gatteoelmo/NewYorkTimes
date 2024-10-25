@@ -39,10 +39,8 @@ export const HomeStyled = styled.div`
   }
 
   .secondary {
-    // background-color: blue;
     flex: 1; 
     height: auto;
-    // width: 300px;
     padding-left: 0px;
 
   }

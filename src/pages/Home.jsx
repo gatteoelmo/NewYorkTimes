@@ -1,32 +1,28 @@
 import { HomeStyled } from "../components/Styles/HomeStyled";
 import { Article } from "../components/Article";
-import { fetchNews } from "../utils/FetchNews";
+import { fetchTopNewsByName } from "../utils/FetchNews";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "../utils/MobileResponsive";
 import { useSelector } from "react-redux";
+import { SecondaryNews } from "../components/SecondaryNews";
 
 const Home = () => {
   const isMobile = useIsMobile(1200);
-  const [visibleCount, setVisibleCount] = useState(10);
-
+  const [visibleCount, setVisibleCount] = useState(20);
   let section = useSelector((state) => state.section);
 
   // api call
   const { isLoading, data, error, refetch } = useQuery({
     queryKey: ["news"],
-    queryFn: () => fetchNews({ section }),
+    queryFn: () => fetchTopNewsByName({ section }),
   });
   const filteredData = data?.filter((item) => item.abstract);
-
   useEffect(() => {
     refetch();
   }, [section, refetch]);
-
   if (isLoading) return "Loading...";
-
   if (error) return "An error has occurred: " + error.message;
-
   console.log(data);
 
   return (
@@ -41,7 +37,11 @@ const Home = () => {
           </button>
         </div>
       </div>
-      {!isMobile && <div className="secondary"></div>}
+      {!isMobile && (
+        <div className="secondary">
+          <SecondaryNews />
+        </div>
+      )}
     </HomeStyled>
   );
 };
