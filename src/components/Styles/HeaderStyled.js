@@ -60,44 +60,7 @@ export const HeaderStyled = styled.header`
             background: #EAE9EC70;
                 
         }
-
-        form {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-            height: 38px;
-            border-radius: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 0.3s;
-
-            input {
-                background: none;
-                border: solid 2px rgba(0,0,0,0.9);
-                border-radius: 4px;
-                cursor: pointer;
-                height: 90%;
-                min-width: 200px;
-                padding: 0px 10px;
-                font-size: 18px;
-            }
-
-            button {
-                background: #6480A685;
-                cursor: pointer;
-                color: white;
-                height: 35px;
-                width: 35px;
-                border-radius: 10%;
-                border: none;
-                margin-left: 3px;
-                font-size: 10px;
-                font-weight: 700;
-            }
-        }
-        }
+    }
 
 
 
@@ -154,7 +117,7 @@ export const HeaderStyled = styled.header`
     .line {
         width: 100%;
         height: 0px;
-        border: 0.5px solid #00090;
+        border: 0.5px solid #000;
         margin-top: 1px;
     }
 

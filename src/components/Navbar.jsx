@@ -1,27 +1,9 @@
 import { NavbarStyled } from "./Styles/NavbarStyled";
 import { useRef, useEffect, useState } from "react";
 import { SubSections } from "./SubSectionsNavbar";
+import { subSections1, subSections2 } from "../utils/subsectionsList";
 
 export const Navbar = () => {
-  // subsections for navbar
-  const subSections1 = [
-    "arts",
-    "books",
-    "business",
-    "fashion",
-    "food",
-    "health",
-    "magazine",
-  ];
-  const subSections2 = [
-    "movies",
-    "politics",
-    "science",
-    "sports",
-    "technology",
-    "theater",
-  ];
-
   /* This code snippet is creating a functionality to determine if a specific element (in this case, the
 Navbar) is intersecting with another element in the viewport. Here's a breakdown of what each part
 does: */

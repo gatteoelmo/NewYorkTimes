@@ -8,13 +8,14 @@ import { useIsMobile } from "../utils/MobileResponsive";
 import { useSelector, useDispatch } from "react-redux";
 import { changeSection } from "../redux/sectionSlice";
 import { useState } from "react";
+import { sections } from "../utils/sectionsList";
+import { SearchBar } from "./searchBar";
 
 export const Header = () => {
   const [visibleSearch, setVisibleSearch] = useState(false);
   const status = useSelector((state) => state.section);
   const dispatch = useDispatch();
   const isMobile = useIsMobile(1200);
-  const sections = ["home", "world", "us", "nyregion"];
 
   return (
     <>
@@ -28,12 +29,7 @@ export const Header = () => {
               >
                 <IoIosSearch />
               </button>
-              {visibleSearch && (
-                <form action="">
-                  <input type="text" placeholder="Search" />
-                  <button type="submit">GO</button>
-                </form>
-              )}
+              {visibleSearch && <SearchBar />}
             </div>
             <div className="topBar">
               <ul className="topBar">

@@ -20,6 +20,7 @@ const Home = () => {
   const filteredData = data?.filter((item) => item.abstract);
   useEffect(() => {
     refetch();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [section, refetch]);
   if (isLoading) return "Loading...";
   if (error) return "An error has occurred: " + error.message;
@@ -37,6 +38,8 @@ const Home = () => {
           </button>
         </div>
       </div>
+
+      {!isMobile && <hr />}
       {!isMobile && (
         <div className="secondary">
           <SecondaryNews />

@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const HeaderResponsiveStyled = styled.header`
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    background-color: white;
     font-family: "Open Sans", sans-serif;
     font-size: 12px;
     margin: initial;
@@ -31,6 +36,11 @@ export const HeaderResponsiveStyled = styled.header`
             height: 52px;
             padding: 10px 15px 6px;
             border-bottom: 1px solid #EAE9EC; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
             
             button:hover {
            
@@ -68,6 +78,7 @@ export const HeaderResponsiveStyled = styled.header`
         font-weight: 700;
         background: transparent;
         overflow: hidden;
+        margin-top: 52px;
 
         p {
             overflow: hidden;       

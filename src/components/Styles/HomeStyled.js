@@ -16,7 +16,6 @@ export const HomeStyled = styled.div`
     height: auto;
     // width: 400px;
     padding-right: 0px;
-    border-right: 1px solid #EAE9EC;
 
     .loadMore {
       display: flex;
