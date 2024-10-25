@@ -51,6 +51,6 @@ export const NavbarStyled = styled.nav`
                     cursor: pointer;
                 }
             }
-}   
+
     
 `
