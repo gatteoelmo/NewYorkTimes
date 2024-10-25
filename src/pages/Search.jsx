@@ -101,7 +101,7 @@ const Search = () => {
             <article key={article.uri}>
               <a href="{article.web_url}">
                 <div className="article-info">
-                  <p>{article.section_name}</p>
+                  <p className="section">{article.section_name}</p>
                   <p>{formatDate(article.pub_date)}</p>
                 </div>
 
