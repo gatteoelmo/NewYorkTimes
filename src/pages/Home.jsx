@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useIsMobile } from "../utils/MobileResponsive";
 import { useSelector } from "react-redux";
 import { SecondaryNews } from "../components/SecondaryNews";
+import { Header } from "../components/Header";
 
 const Home = () => {
   const isMobile = useIsMobile(1200);
@@ -27,25 +28,28 @@ const Home = () => {
   console.log(data);
 
   return (
-    <HomeStyled>
-      <div className="principal">
-        {filteredData.slice(0, visibleCount).map((article) => (
-          <Article key={article.uri} article={article} />
-        ))}
-        <div className="loadMore">
-          <button onClick={() => setVisibleCount(visibleCount + 10)}>
-            Load More News
-          </button>
+    <>
+      <Header />
+      <HomeStyled>
+        <div className="principal">
+          {filteredData.slice(0, visibleCount).map((article) => (
+            <Article key={article.uri} article={article} />
+          ))}
+          <div className="loadMore">
+            <button onClick={() => setVisibleCount(visibleCount + 10)}>
+              Load More News
+            </button>
+          </div>
         </div>
-      </div>
 
-      {!isMobile && <hr />}
-      {!isMobile && (
-        <div className="secondary">
-          <SecondaryNews />
-        </div>
-      )}
-    </HomeStyled>
+        {!isMobile && <hr />}
+        {!isMobile && (
+          <div className="secondary">
+            <SecondaryNews />
+          </div>
+        )}
+      </HomeStyled>
+    </>
   );
 };
 

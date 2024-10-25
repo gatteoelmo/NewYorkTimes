@@ -8,6 +8,11 @@ export const SideNavbarStyled = styled.div`
     background-color: white;
     transform: translateX(0);
     animation: slideDown 0.3s ease;
+    padding: 20px 0px;
+
+    input {
+        width: 90%;
+    }
     
 
     nav {

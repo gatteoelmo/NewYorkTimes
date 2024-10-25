@@ -14,5 +14,11 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0 auto;
         box-sizing: border-box;
         font-family: 'Lato', sans-serif;
+
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
     }
 `   

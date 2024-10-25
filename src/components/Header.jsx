@@ -33,17 +33,17 @@ export const Header = () => {
             </div>
             <div className="topBar">
               <ul className="topBar">
-                {sections.map((section, index) => (
+                {sections.map((section) => (
                   <li
-                    key={index}
+                    key={section.id}
                     onClick={() => {
                       dispatch(changeSection(section));
                     }}
                     style={{
-                      fontWeight: status === section ? "bold" : "normal",
+                      fontWeight: status === section.title ? "bold" : "normal",
                     }}
                   >
-                    {section}
+                    {section.title}
                   </li>
                 ))}
               </ul>

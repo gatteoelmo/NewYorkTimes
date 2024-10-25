@@ -10,6 +10,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { changeSection } from "../redux/sectionSlice";
+import { Link } from "react-router-dom";
 
 export const SubSections = ({ subSections }) => {
   const status = useSelector((state) => state.section);
@@ -17,18 +18,22 @@ export const SubSections = ({ subSections }) => {
 
   return (
     <ul>
-      {subSections.map((subSection, index) => (
-        <li
-          key={index}
-          onClick={() => {
-            dispatch(changeSection(subSection));
-          }}
-          style={{
-            fontWeight: status === subSection ? "bold" : "normal",
-          }}
-        >
-          {subSection}
-        </li>
+      {subSections.map((subSection) => (
+        <>
+          <Link to={`/`} key={subSection.id}>
+            <li
+              key={subSection.id}
+              onClick={() => {
+                dispatch(changeSection(subSection.title));
+              }}
+              style={{
+                fontWeight: status === subSection.title ? "bold" : "normal",
+              }}
+            >
+              {subSection.title}
+            </li>
+          </Link>
+        </>
       ))}
     </ul>
   );

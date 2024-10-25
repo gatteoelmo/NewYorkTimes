@@ -41,6 +41,7 @@ export const NavbarStyled = styled.nav`
             opacity: 0.5;
         }
 
+
             ul {
                 display: flex;
                 list-style: none;

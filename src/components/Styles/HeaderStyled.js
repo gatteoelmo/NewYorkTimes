@@ -62,7 +62,8 @@ export const HeaderStyled = styled.header`
         }
     }
 
-
+        Link {
+            text-decoration: none;}
 
         ul {
             margin-right: -10px;

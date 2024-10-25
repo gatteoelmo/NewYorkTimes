@@ -7,7 +7,7 @@ import { GlobalStyles } from "./components/Styles/GlobalStyles";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Error from "./pages/Error";
-import { Header } from "./components/Header";
+// import { Header } from "./components/Header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")).render(
     <GlobalStyles />
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <Header />
+        {/* <Header /> */}
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

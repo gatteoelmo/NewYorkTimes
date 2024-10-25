@@ -15,11 +15,11 @@ export const SearchBarStyled = styled.form`
 
             input {
                 background: none;
-                border: solid 2px rgba(0,0,0,0.9);
+                border: solid 1px rgba(0,0,0,0.7);
                 border-radius: 4px;
                 cursor: pointer;
                 height: 90%;
-                min-width: 200px;
+                min-width: 190px;
                 padding: 0px 10px;
                 font-size: 18px;
             }

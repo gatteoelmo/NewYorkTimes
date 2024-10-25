@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const SecondaryNews = () => {
   const { isLoading, data, error } = useQuery({
-    queryKey: ["news1"],
+    queryKey: ["newssecondary"],
     queryFn: () => fetchTopNews(),
   });
   const filteredData = data?.filter((item) => item.abstract);
@@ -15,8 +15,7 @@ export const SecondaryNews = () => {
   return (
     <SecondaryNewsStyled>
       {filteredData.map((article, index) => (
-        // eslint-disable-next-line react/jsx-key
-        <div>
+        <div key={index}>
           <a href={article.url}>
             {index % 2 ? <img src={article.multimedia[0].url} alt="" /> : null}
             <h4>{article.subsection}</h4>
