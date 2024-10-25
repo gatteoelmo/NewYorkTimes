@@ -14,6 +14,19 @@ const Search = () => {
   const [debouncedSearch, setDebouncedSearch] = useState(search);
   const dispatch = useDispatch();
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long", // full month name
+      day: "numeric",
+    });
+  };
+
+  // Usage
+  const pubDate = "1969-01-12T05:00:00+0000";
+  console.log(formatDate(pubDate));
+
   const handleSortChange = (e) => {
     const newSort = e.target.value;
     dispatch(setSort(newSort)); // Dispatch the action to update the sort state
@@ -83,13 +96,21 @@ const Search = () => {
         <hr />
         {isLoading && <div>Loading...</div>}
         {error && <div>An error has occurred: {error.message}</div>}
-        <div>
+        <section>
           {data?.map((article) => (
-            <div key={article.uri}>
-              <h2>{article.headline.main}</h2>
-            </div>
+            <article key={article.uri}>
+              <a href="{article.web_url}">
+                <div className="article-info">
+                  <p>{article.section_name}</p>
+                  <p>{formatDate(article.pub_date)}</p>
+                </div>
+
+                <h2>{article.headline.main}</h2>
+                <p>{article.abstract}</p>
+              </a>
+            </article>
           ))}
-        </div>
+        </section>
       </SearchPageStyled>
     </>
   );

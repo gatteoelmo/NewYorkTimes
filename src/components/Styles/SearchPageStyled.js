@@ -6,6 +6,46 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+padding: 0px 3.7vw;
+
+section {
+        margin: 30px 0px;
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        justify-content: start;
+        align-items: start;
+
+        article {
+            margin-top: 15px;
+            padding-bottom: 10px;
+            border-bottom: solid 1px rgba(0,0,0,0.1);
+            width: 100%;
+
+            h2 {
+                margin-bottom: 10px;
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 300;
+            }
+
+            .article-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+
+                .section {
+                    background-color: rgba(0,0,0,0.1);
+                }
+            }
+        }
+}
 
 div {
     width: 100%;
@@ -92,6 +132,7 @@ hr {
 
 
     }
+
 } 
 
 `
