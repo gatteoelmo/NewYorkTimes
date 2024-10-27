@@ -23,14 +23,22 @@ const Home = () => {
     refetch();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [section, refetch]);
+  if (isLoading)
+    return (
+      <div style={{ textAlign: "center", padding: "20px" }}>Loading...</div>
+    );
+  if (error)
+    return (
+      <div style={{ textAlign: "center", padding: "200px 0px" }}>
+        An error has occurred: {error.message}
+      </div>
+    );
   console.log(data);
 
   return (
     <>
       <Header />
       <HomeStyled>
-        {isLoading && <p>Loading...</p>}
-        {error && <p>An error has occurred: {error.message}</p>}
         <div className="principal">
           {filteredData.slice(0, visibleCount).map((article) => (
             <Article key={article.uri} article={article} />
@@ -49,6 +57,7 @@ const Home = () => {
           </div>
         )}
       </HomeStyled>
+      {isLoading && "Loading..."}
       <div
         style={{ margin: "0 auto", padding: "0px 3.7vw", maxWidth: "1300px" }}
       >
