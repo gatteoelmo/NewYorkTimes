@@ -2,7 +2,7 @@ import { SideNavbarStyled } from "./Styles/SideNavbarStyled";
 import { sections } from "../utils/sectionsList";
 import { subSections1, subSections2 } from "../utils/subsectionsList";
 import { SubSections } from "./SubSectionsNavbar";
-import { SearchBar } from "./searchBar";
+import { SearchBar } from "./SearchBar";
 
 function SideNavbar() {
   return (
