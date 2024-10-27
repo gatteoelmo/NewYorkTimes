@@ -23,14 +23,14 @@ const Home = () => {
     refetch();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [section, refetch]);
-  if (isLoading) return "Loading...";
-  if (error) return "An error has occurred: " + error.message;
   console.log(data);
 
   return (
     <>
       <Header />
       <HomeStyled>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>An error has occurred: {error.message}</p>}
         <div className="principal">
           {filteredData.slice(0, visibleCount).map((article) => (
             <Article key={article.uri} article={article} />
