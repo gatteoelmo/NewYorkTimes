@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeSection } from "../redux/sectionSlice";
 import { useState } from "react";
 import { sections } from "../utils/sectionsList";
-import { SearchBar } from "./searchBar";
+import { SearchBar } from "./SearchBar";
 
 export const Header = () => {
   const [visibleSearch, setVisibleSearch] = useState(false);
