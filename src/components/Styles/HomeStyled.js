@@ -10,12 +10,17 @@ export const HomeStyled = styled.div`
   // overflow: hidden;
   margin-top: 20px;
 
+  hr {
+    margin-bottom: 30px;
+  }
+
   .principal {
     // background-color: red;
     flex: 2; 
     height: auto;
     // width: 400px;
     padding-right: 0px;
+    padding-bottom: 30px;
 
     .loadMore {
       display: flex;

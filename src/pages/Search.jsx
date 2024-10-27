@@ -99,12 +99,11 @@ const Search = () => {
         <section>
           {data?.map((article) => (
             <article key={article.uri}>
-              <a href="{article.web_url}">
+              <a href={article.web_url} target="_blank">
                 <div className="article-info">
                   <p className="section">{article.section_name}</p>
                   <p>{formatDate(article.pub_date)}</p>
                 </div>
-
                 <h2>{article.headline.main}</h2>
                 <p>{article.abstract}</p>
               </a>

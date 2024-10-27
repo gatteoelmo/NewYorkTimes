@@ -49,6 +49,12 @@ const Home = () => {
           </div>
         )}
       </HomeStyled>
+      <div
+        style={{ margin: "0 auto", padding: "0px 3.7vw", maxWidth: "1300px" }}
+      >
+        <hr />
+        <hr />
+      </div>
     </>
   );
 };

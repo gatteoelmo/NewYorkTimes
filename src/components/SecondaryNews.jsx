@@ -15,14 +15,18 @@ export const SecondaryNews = () => {
   return (
     <SecondaryNewsStyled>
       {filteredData.map((article, index) => (
-        <div key={index}>
-          <a href={article.url}>
-            {index % 2 ? <img src={article.multimedia[0].url} alt="" /> : null}
-            <h4>{article.subsection}</h4>
-            <h3>{article.title}</h3>
-            <p>{article.abstract}</p>
-          </a>
-        </div>
+        <>
+          <div key={index}>
+            <a href={article.url}>
+              {index % 2 && article.multimedia ? (
+                <img src={article.multimedia[0].url} alt="" />
+              ) : null}
+              <h4>{article.subsection}</h4>
+              <h3>{article.title}</h3>
+              <p>{article.abstract}</p>
+            </a>
+          </div>
+        </>
       ))}
       <div className="loadMore">
         {/* <button onClick={() => setVisibleCount(visibleCount + 10)}>

@@ -10,6 +10,7 @@ import Error from "./pages/Error";
 // import { Header } from "./components/Header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Footer } from "./components/Footer";
 
 const queryClient = new QueryClient({});
 
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>
+        <Footer />
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
     </Provider>

@@ -37,7 +37,7 @@ export const Header = () => {
                   <li
                     key={section.id}
                     onClick={() => {
-                      dispatch(changeSection(section));
+                      dispatch(changeSection(section.title));
                     }}
                     style={{
                       fontWeight: status === section.title ? "bold" : "normal",

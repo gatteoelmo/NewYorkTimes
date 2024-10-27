@@ -30,7 +30,12 @@ export const MobileHeader = () => {
           </div>
           <div className="account">
             <button>
-              <IoPersonSharp />
+              <a
+                href="https://myaccount.nytimes.com/auth/login?response_type=cookie&client_id=vi&redirect_uri=https%3A%2F%2Fwww.nytimes.com%2Fsubscription%2Fonboarding-offer%3FcampaignId%3D7JFJX%26EXIT_URI%3Dhttps%253A%252F%252Fwww.nytimes.com%252F&asset=masthead"
+                target="_blank"
+              >
+                <IoPersonSharp />
+              </a>
             </button>
           </div>
         </div>

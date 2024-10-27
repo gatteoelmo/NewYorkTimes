@@ -31,6 +31,7 @@ section {
             p {
                 font-size: 16px;
                 font-weight: 300;
+                padding: 5px;
             }
 
             .article-info {
